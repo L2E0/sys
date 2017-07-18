@@ -104,7 +104,9 @@
 
 
         <div class="container">
-            <div class="row-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                </div>
                 <div class="col-lg-6">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search for...">
@@ -113,12 +115,25 @@
                         </span>
                     </div>
                 </div>
+                <div class="col-lg-3">
+                </div>
             </div>
 
             <p class="dokaben dkbn-loop dkbn-text" style="font-size: 2em;">こんにちは。</p>
             <br>
             <a href="./select_thread.php" class="dkbn-hover"><span class="dokaben dkbn-loop2 dkbn-text" style="font-size: 2em;">さようなら</span></a>
 
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6" style="margin-left: auto; margin-right: auto;">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                    </span>
+                </div>
+            </div>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
