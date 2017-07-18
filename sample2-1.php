@@ -5,7 +5,7 @@
         <link rel="stylesheet" href=".\css\bootstrap-3.3.7-dist\css\bootstrap.min.css">
         <link rel="stylesheet" href=".\css\dropmenu.css">
         <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
-        <meta http-equiv="Content-Type" contet="text/html;charset=UTF-8" />
+        <meta charset=utf-8>
         <title>Bootstrap dokaben test</title>
 
         <style>
@@ -74,9 +74,7 @@
         </style>
     </head>
     <body>
-        <button type="button" class="btn btn-default" style="margin-left:20px;">
-            <a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
-        </button>
+        <a type="button" class="btn btn-default" style="margin-left:20px;" href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
 
         <div style="display: inline; float: right;">
             <div class="btn-group" style="margin-left: auto; margin-right: 0;">
@@ -97,31 +95,31 @@
 
         <hr style="border-color: #ff0000; margin-top: 1px;">
 
-        <CENTER>
-            <p align="center" class="dokaben dkbn-loop dkbn-text" style="font-size: 5em;">？</p>
-        </CENTER>
-
-
-
-
-
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                        <a href="#"><button  class="btn btn-danger" type="button" style="float: left;">は？</button></a>
-                    </span>
-                </div>
-            </div>
+        <div style="text-align: center;">
+            <p class="dokaben dkbn-loop dkbn-text" style="font-size: 5em; display: inline-block;">Google</p>
         </div>
 
-        <p class="dokaben dkbn-loop dkbn-text" style="font-size: 2em;">こんにちは。</p>
-        <button type="button" class="btn btn-default" aria-label="Left Align">
-            <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
-        </button>
-        <br>
-        <a href="./select_thread.php" class="dkbn-hover"><span class="dokaben dkbn-loop2 dkbn-text" style="font-size: 2em;">さようなら</span></a>
+
+
+
+
+        <div class="container">
+            <div class="row-fluid">
+                <div class="col-lg-6">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for...">
+                        <span class="input-group-btn">
+                            <a href="#"><button  class="btn btn-danger" type="button" style="float: left;">は？</button></a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="dokaben dkbn-loop dkbn-text" style="font-size: 2em;">こんにちは。</p>
+            <br>
+            <a href="./select_thread.php" class="dkbn-hover"><span class="dokaben dkbn-loop2 dkbn-text" style="font-size: 2em;">さようなら</span></a>
+
+        </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
         </script>
