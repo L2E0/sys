@@ -53,9 +53,26 @@
                 <div class="col-lg-3">
                 </div>
             </div>
-            <p class="dokaben dkbn-loop dkbn-text" style="font-size: 2em;">こんにちは。</p>
-            <br>
-            <a href="./select_thread.php" class="dkbn-hover"><span class="dokaben dkbn-loop2 dkbn-text" style="font-size: 2em;">さようなら</span></a>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div style="padding: 10px; margin: 10px; border: 1px solid #333333; border-radius: 10px;">
+                        ああああ
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div style="padding: 10px; margin: 10px; border: 1px solid #333333; border-radius: 10px;">
+                        <span class="dokaben dkbn-text dkbn-hover">ああああ</span>
+                    </div>
+                    <p class="dokaben dkbn-loop dkbn-text" style="font-size: 2em;">こんにちは。</p>
+                    <br>
+                    <a href="./select_thread.php" class="dkbn-hover"><span class="dokaben dkbn-loop2 dkbn-text" style="font-size: 2em;">さようなら</span></a>
+                </div>
+                <div class="col-lg-4">
+                    <div style="padding: 10px; margin: 10px; border: 1px solid #333333; border-radius: 10px;">
+                        いいいい
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="container">
