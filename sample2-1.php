@@ -13,22 +13,47 @@
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
         </a>
 
-        <div style="display: inline; float: right;">
-            <div class="btn-group" style="margin-left: auto; margin-right: 0;">
-                <button type="button" class="btn btn-default">Action</button>
-                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
+        <div style="display: inline-block; float: right; overflow: visible;">
+            <div class="btn-group">
+                <button type="button" style="width: 160px; text-align: right;"class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu" >
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">あ</a></li>
-                    <li><a href="#">い</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
+                <ul class="dropdown-menu" style="width: 100px;">
+                    <li id="signup"><a href="#">sign up</a></li>
+                    <li id="signin"><a href="#">sign in</a></li>
+                    <li id="myp"><a href="#">my page</a></li>
+                    <li id="crtth"><a href="#">create thread</a></li>
+                    <li id="bar" role="separator" class="divider"></li>
+                    <li id="signout"><a href="#">sign out</a></li>
                 </ul>
             </div>
         </div>
+
+        <script>
+            function detail1()
+            {
+                if (1)//sign in
+                {
+                    document.getElementById("signup").style.display="none";
+                    document.getElementById("signin").style.display="none";
+                    document.getElementById("myp").style.display="inline";
+                    document.getElementById("crtth").style.display="inline";
+                    document.getElementById("signout").style.display="inline";
+                    document.getElementById("bar").style.display="block";
+                }
+                else
+                {
+                    document.getElementById("signup").style.display="inline";
+                    document.getElementById("signin").style.display="inline";
+                    document.getElementById("myp").style.display="none";
+                    document.getElementById("crtth").style.display="none";
+                    document.getElementById("signout").style.display="none";
+                    document.getElementById("bar").style.display="none";
+                }
+            }
+
+            detail1();
+        </script>
 
         <hr style="border-color: #ff0000; margin-top: 1px;">
 
@@ -48,25 +73,40 @@
                     </div>
 
                     <form>
-                        <button type="button" class="btn btn-default" onclick="detail()">
+                        <button type="button" class="btn btn-default" onclick="detail2()">
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
+                        <p id="ho" style="display: inline;">詳細検索</p>
                     </form>
 
-                    <div id="disp" style="display: none">
-                        aaa
+                    <div id="option" style="display: none">
+                        <p>
+                        <input type="checkbox" name="riyu" value="1" checked="checked">スレッド検索
+                        <input type="checkbox" name="riyu" value="2">コメント検索
+                        </p>
+                    </div>
+
+                    <div id="d" style="display: none;" class="input-group">
+                        <input type="datetime-local" value="<?php echo date('Y-m-j');?>" style="display: inline;">
+                        <p style="display: inline;">　　〜　　</p>
+                        <input type="datetime-local" style="display: inline;">
+                        <p style="display: inline;">を検索</p>
                     </div>
 
                     <script>
-                        function detail()
+                        function detail2()
                         {
-                            if (document.getElementById("disp").style.display == "none")
+                            if (document.getElementById("option").style.display == "none")
                             {
-                                document.getElementById("disp").style.display="block";
+                                document.getElementById("option").style.display="block";
+                                document.getElementById("d").style.display="block";
+                                document.getElementById("ho").style.display="none";
                             }
                             else
                             {
-                                document.getElementById("disp").style.display="none";
+                                document.getElementById("option").style.display="none";
+                                document.getElementById("d").style.display="none";
+                                document.getElementById("ho").style.display="inline";
                             }
                         }
                     </script>
