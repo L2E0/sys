@@ -29,11 +29,10 @@
             </div>
         </div>
 
-        <script>
-            session_start();
+        <script type="text/javascript">
             function detail1()
             {
-                if (<?php isset($_SESSION["username"]) ?>)//sign in
+                if (<?php echo isset($_SESSION["username"]) ?>)//sign in
                 {
                     document.getElementById("signup").style.display="none";
                     document.getElementById("signin").style.display="none";
@@ -118,9 +117,11 @@
                 <div class="col-md-4">
                     <div style="padding: 10px; margin: 10px; border: 1px solid #333333; border-radius: 10px;">
                         Genre
-                        <ul>
-                            <a href="#"><li>aaa</li></a>
-                            <li>iii</li>
+                        <ul style="list-style: none;">
+                            <a href="#?genre='a'" style="font-size: 4em;"><li>aaa</li></a>
+                            <a href="#" style="font-size: 4em;"><li>aaa</li></a>
+                            <a href="#" style="font-size: 4em;"><li>aaa</li></a>
+                            <a href="#" style="font-size: 4em;"><li>aaa</li></a>
                         </ul>
                     </div>
                 </div>
