@@ -30,9 +30,10 @@
         </div>
 
         <script>
+            session_start();
             function detail1()
             {
-                if (1)//sign in
+                if (<?php isset($_SESSION["username"]) ?>)//sign in
                 {
                     document.getElementById("signup").style.display="none";
                     document.getElementById("signin").style.display="none";
@@ -68,7 +69,7 @@
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search for...">
                         <span class="input-group-btn">
-                            <a href="#"><button  class="btn btn-info" type="button" style="float: left;">は？</button></a>
+                            <a href="#"><button  class="btn btn-info" type="button" style="float: left;">検索</button></a>
                         </span>
                     </div>
 
@@ -127,9 +128,6 @@
                     <div style="padding: 10px; margin: 10px; border: 1px solid #333333; border-radius: 10px;">
                         New
                     </div>
-                    <p class="dokaben dkbn-loop dkbn-text" style="font-size: 2em;">こんにちは。</p>
-                    <br>
-                    <a href="./select_thread.php" class="dkbn-hover"><span class="dokaben dkbn-loop2 dkbn-text" style="font-size: 2em;">さようなら</span></a>
                 </div>
                 <div class="col-md-4">
                     <div style="padding: 10px; margin: 10px; border: 1px solid #333333; border-radius: 10px;">
@@ -139,24 +137,6 @@
             </div>
         </div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-2 col-sm-offset-5">
-                    <p class="dokaben dkbn-text" style="font-size: 2em;">aaaaa</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-6" style="float: center;">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                </div>
-            </div>
-        </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
         </script>
