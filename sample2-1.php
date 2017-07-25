@@ -6,7 +6,13 @@
         <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
         <meta charset=utf-8>
         <title>Bootstrap dokaben test</title>
-
+        <style>
+            .dekaben {
+                        display: inline-block;
+                        font-size: 3em;
+                        text-align: center;
+                    }
+        </style>
     </head>
     <body>
         <a type="button" class="btn btn-default" style="margin-left:20px;" href="./index.php">
@@ -29,36 +35,35 @@
             </div>
         </div>
 
+
         <script type="text/javascript">
-            function detail1()
-            {
-                if (<?php echo isset($_SESSION["username"]) ?>)//sign in
-                {
+            <?php
+                if (isset($_SESSION["username"])) {//sign in
+                    echo <<< GOMI
                     document.getElementById("signup").style.display="none";
                     document.getElementById("signin").style.display="none";
                     document.getElementById("myp").style.display="inline";
                     document.getElementById("crtth").style.display="inline";
                     document.getElementById("signout").style.display="inline";
                     document.getElementById("bar").style.display="block";
-                }
-                else
-                {
+GOMI;
+                } else {
+                    echo <<< GOMI
                     document.getElementById("signup").style.display="inline";
                     document.getElementById("signin").style.display="inline";
                     document.getElementById("myp").style.display="none";
                     document.getElementById("crtth").style.display="none";
                     document.getElementById("signout").style.display="none";
                     document.getElementById("bar").style.display="none";
+GOMI;
                 }
-            }
-
-            detail1();
+            ?>
         </script>
 
         <hr style="border-color: #ff0000; margin-top: 1px;">
 
         <div style="text-align: center;">
-            <p class="dokaben dkbn-loop dkbn-text" style="font-size: 5em; display: inline-block;">Google</p>
+            <p class="dokaben dkbn-text dkbn-up" style="animation-duration: 10000ms; font-size: 5em; display: inline-block;">Google</p>
         </div>
 
         <div class="container-fluid">
@@ -81,7 +86,7 @@
 
                     <div id="option" style="display: none">
                         <p>
-                        <input type="checkbox" name="riyu" value="1" checked="checked">スレッド検索
+                        <input type="checkbox" name="riyu" value="1">スレッド検索
                         <input type="checkbox" name="riyu" value="2">コメント検索
                         </p>
                     </div>
@@ -94,16 +99,12 @@
                     </div>
 
                     <script>
-                        function detail2()
-                        {
-                            if (document.getElementById("option").style.display == "none")
-                            {
+                        function detail2() {
+                            if (document.getElementById("option").style.display == "none") {
                                 document.getElementById("option").style.display="block";
                                 document.getElementById("d").style.display="block";
                                 document.getElementById("ho").style.display="none";
-                            }
-                            else
-                            {
+                                } else {
                                 document.getElementById("option").style.display="none";
                                 document.getElementById("d").style.display="none";
                                 document.getElementById("ho").style.display="inline";
@@ -113,26 +114,88 @@
 
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: 10px;">
                 <div class="col-md-4">
-                    <div style="padding: 10px; margin: 10px; border: 1px solid #333333; border-radius: 10px;">
-                        Genre
-                        <ul style="list-style: none;">
-                            <a href="#?genre='a'" style="font-size: 4em;"><li>aaa</li></a>
-                            <a href="#" style="font-size: 4em;"><li>aaa</li></a>
-                            <a href="#" style="font-size: 4em;"><li>aaa</li></a>
-                            <a href="#" style="font-size: 4em;"><li>aaa</li></a>
-                        </ul>
+                    <div class="panel panel-info" >
+                        <div class="panel-heading" >
+                            <p style="margin: 0px 0px 0px 30px;"><span class="dokaben dkbn-text dkbn-loop dekaben" >Genre</span></p>
+                        </div>
+                        <div class="panel-body">
+                            <ul style="list-style: none;">
+                                <a href="#?genre='a'" style="font-size: 2em;"><li>Horror</li></a>
+                                <a href="#" style="font-size: 2em;"><li>Action</li></a>
+                                <a href="#" style="font-size: 2em;"><li>Battle</li></a>
+                                <a href="#" style="font-size: 2em;"><li>Fighting</li></a>
+                                <a href="#" style="font-size: 2em;"><li>Shooting</li></a>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div style="padding: 10px; margin: 10px; border: 1px solid #333333; border-radius: 10px;">
-                        New
+                    <div class="panel panel-info">
+                        <div class="panel-heading" >
+                            New
+                        </div>
+                        <div class="panel-body">
+                            <?php
+                                $dbname='group1_db';
+                                $dbuser='group1';
+                                $dbhost='localhost';
+
+                                $con=pg_connect("dbname=group1_db user=group1");
+                                if(!$con){
+                                    die('failure' .pg_last_error());
+                                }
+                                //echo 'success';
+                                pg_set_client_encoding('UTF-8');
+                                $sql='select * from thread';
+                                $result=pg_query($sql);
+                                if(!$result){
+                                    die('fail to execute the query' .pg_last_error());
+                                }
+                                $maxeva=0;
+                                while($row = pg_fetch_assoc($result)){
+                                    //echo($row['title'] .'<br>');
+                                    if($maxeva < $row['evaluation']){
+                                        $maxeva = $row['evaluation'];
+                                        $maxtitle = $row['title'];
+                                    }
+                                }
+                                echo('<br>' .$maxtitle .$maxeva .'<br>');
+
+                                $result=pg_query($sql);
+                                $data=pg_fetch_array($result,NULL,PGSQL_ASSOC);
+                                echo('thread:' .$data['title'] .'<br>' .$data['game'] .'<br>');
+
+                                pg_close($con);
+                            ?>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div style="padding: 10px; margin: 10px; border: 1px solid #333333; border-radius: 10px;">
-                        <a href="#" class="dkbn-hover"><span class="dokaben dkbn-loop2 dkbn-text">Rank</span></a>
+                    <div class="panel panel-info">
+                        <div class="panel-heading" >
+                            Rank
+                        </div>
+                            <?php
+                                $maxeva=0;
+                                while($row = pg_fetch_assoc($result)){
+                                    //echo($row['title'] .'<br>');
+                                    if($maxeva < $row['evaluation']){
+                                        $maxeva = $row['evaluation'];
+                                        $maxtitle = $row['title'];
+                                    }
+                                }
+                                echo('<br>' .$maxtitle .$maxeva .'<br>');
+
+                                $result=pg_query($sql);
+                                $data=pg_fetch_array($result,NULL,PGSQL_ASSOC);
+                                echo('thread:' .$data['title'] .'<br>' .$data['game'] .'<br>');
+
+                                pg_close($con);
+                            ?>
+                        <div class="panel-body">
+                        </div>
                     </div>
                 </div>
             </div>
