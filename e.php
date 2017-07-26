@@ -1,2 +1,3 @@
-
-                            <?php echo('<a href=¥"#?title=' .$titleary[0] .'¥">' .$titlearay[0] .':' .$evaary[0]); ?> </a>
+<?php
+echo("<a href=\"#?title=\\\"" ."aaa" ."\\\"\">" ."a" .':' ."a" .'</a>');
+?>

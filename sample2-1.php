@@ -5,7 +5,7 @@
         <link rel="stylesheet" href=".\css\bootstrap-3.3.7-dist\css\bootstrap.min.css">
         <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
         <meta charset=utf-8>
-        <title>Bootstrap dokaben test</title>
+        <title>ランキングくん</title>
         <style>
             .dekaben {
                         display: inline-block;
@@ -15,10 +15,11 @@
         </style>
     </head>
     <body>
-        <a type="button" class="btn btn-default" style="margin-left:20px;" href="./index.php">
+        <a type="button" class="btn btn-info" style="margin-left:20px;" href="./index.php">
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
         </a>
-
+        <a href="./riyoukiyaku.html" type="button" class="btn btn-danger">利用規約</a>
+        <a href="./shiyouhoho.html" type="button" class="btn btn-success">使用方法</a>
         <div style="display: inline-block; float: right; overflow: visible;">
             <div class="btn-group">
                 <button type="button" style="width: 160px; text-align: right;"class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,7 +64,7 @@ GOMI;
         <hr style="border-color: #ff0000; margin-top: 1px;">
 
         <div style="text-align: center;">
-            <p class="dokaben dkbn-text dkbn-up" style="animation-duration: 10000ms; font-size: 5em; display: inline-block;">Google</p>
+            <p class="dokaben dkbn-text dkbn-up" style="animation-duration: 10000ms; font-size: 5em; display: inline-block;">ランキングくん</p>
         </div>
 
         <div class="container-fluid">
@@ -134,7 +135,10 @@ GOMI;
                 <div class="col-md-4">
                     <div class="panel panel-info">
                         <div class="panel-heading" >
-                            New
+                            <p style="margin: 0px 0px 0px 10px;"><span class="dokaben dkbn-text dkbn-loop dekaben" >
+                            New Comments
+                            </span>
+                            </p>
                         </div>
                         <div class="panel-body">
                             <?php
@@ -159,7 +163,7 @@ GOMI;
                                 $titleary = array_pad(array(), 5, NULL);
 
                                 while($row = pg_fetch_assoc($result)){
-                                    for($i=0; $i<count($dateary); $i++){
+                                    for($i=count($dateary)-1; $i>=0; $i--){
                                         if($dateary[$i] < $row['date']){
                                             $dateary[$i] = $row['date'];
                                             $timeary[$i] = $row['time'];
@@ -175,37 +179,32 @@ GOMI;
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[0] != NULL)
-                                echo('<a href="#?title=' .$titleary[0] .'">' .$dateary[0] .'-' .$timeary[0] .' : ' .$commentary[0] .'<br>->' .$titleary[0] .'</a>');
+                                echo('<a href="#?title=' .$titleary[0] .'">' .$dateary[0] .'-' .$timeary[0] .' : ' .$commentary[0] .'<br>in ' .$titleary[0] .'</a><br>');
                             ?>
-                            <br>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
-                                if($titleary[0] != NULL)
-                                echo('<a href="#?title=' .$titleary[1] .'">' .$dateary[1] .'-' .$timeary[1] .' : ' .$commentary[1] .'<br>->' .$titleary[1] .'</a>');
+                                if($titleary[1] != NULL)
+                                echo('<a href="#?title=' .$titleary[1] .'">' .$dateary[1] .'-' .$timeary[1] .' : ' .$commentary[1] .'<br>in ' .$titleary[1] .'</a><br>');
                             ?>
-                            <br>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
-                                if($titleary[0] != NULL)
-                                echo('<a href="#?title=' .$titleary[2] .'">' .$dateary[2] .'-' .$timeary[2] .' : ' .$commentary[2] .'<br>->' .$titleary[2] .'</a>');
+                                if($titleary[2] != NULL)
+                                echo('<a href="#?title=' .$titleary[2] .'">' .$dateary[2] .'-' .$timeary[2] .' : ' .$commentary[2] .'<br>in ' .$titleary[2] .'</a><br>');
                             ?>
-                            <br>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
-                                if($titleary[0] != NULL)
-                                echo('<a href="#?title=' .$titleary[3] .'">' .$dateary[3] .'-' .$timeary[3] .' : ' .$commentary[3] .'<br>->' .$titleary[3] .'</a>');
+                                if($titleary[3] != NULL)
+                                echo('<a href="#?title=' .$titleary[3] .'">' .$dateary[3] .'-' .$timeary[3] .' : ' .$commentary[3] .'<br>in ' .$titleary[3] .'</a><br>');
                             ?>
-                            <br>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
-                                if($titleary[0] != NULL)
-                                echo('<a href="#?title=' .$titleary[4] .'">' .$dateary[4] .'-' .$timeary[4] .' : ' .$commentary[4] .'<br>->' .$titleary[4] .'</a>');
+                                if($titleary[4] != NULL)
+                                echo('<a href="#?title=' .$titleary[4] .'">' .$dateary[4] .'-' .$timeary[4] .' : ' .$commentary[4] .'<br>in ' .$titleary[4] .'</a><br>');
                             ?>
-                            <br>
                             </p>
                         </div>
                     </div>
@@ -213,7 +212,10 @@ GOMI;
                 <div class="col-md-4">
                     <div class="panel panel-info">
                         <div class="panel-heading" >
-                            Rank
+                            <p style="margin: 0px 0px 0px 15px;"><span class="dokaben dkbn-text dkbn-loop dekaben" >
+                            Thread Rank
+                            </span>
+                            </p>
                         </div>
                             <?php
                                 /*$maxeva=0;
@@ -272,7 +274,7 @@ GOMI;
                             <p style="font-size: 3em;">
                             <?php
                                 if($titleary[0] != NULL)
-                                echo('<a href="#?title=' .$titleary[0] .'">' .$titleary[0] .':' .$evaary[0] .'</a>');
+                                    echo("<a href=\"#?title=\\\"" .$titleary[0] ."\\\"\">" .$titleary[0] .':' .$evaary[0] .'</a>');
                             ?>
                             </p>
                             <p style="font-size: 2em;">
