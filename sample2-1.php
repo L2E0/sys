@@ -179,31 +179,31 @@ GOMI;
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[0] != NULL)
-                                echo('<a href="#?title=' .$titleary[0] .'">' .$dateary[0] .'-' .$timeary[0] .' : ' .$commentary[0] .'<br>in ' .$titleary[0] .'</a><br>');
+                                echo('<a href="#?' .$titleary[0] .'>' .$dateary[0] .'-' .$timeary[0] .' : ' .$commentary[0] .'<br>in ' .$titleary[0] .'</a><br>');
                             ?>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[1] != NULL)
-                                echo('<a href="#?title=' .$titleary[1] .'">' .$dateary[1] .'-' .$timeary[1] .' : ' .$commentary[1] .'<br>in ' .$titleary[1] .'</a><br>');
+                                echo('<a href="#?' .$titleary[1] .'>' .$dateary[1] .'-' .$timeary[1] .' : ' .$commentary[1] .'<br>in ' .$titleary[1] .'</a><br>');
                             ?>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[2] != NULL)
-                                echo('<a href="#?title=' .$titleary[2] .'">' .$dateary[2] .'-' .$timeary[2] .' : ' .$commentary[2] .'<br>in ' .$titleary[2] .'</a><br>');
+                                echo('<a href="#?' .$titleary[2] .'>' .$dateary[2] .'-' .$timeary[2] .' : ' .$commentary[2] .'<br>in ' .$titleary[2] .'</a><br>');
                             ?>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[3] != NULL)
-                                echo('<a href="#?title=' .$titleary[3] .'">' .$dateary[3] .'-' .$timeary[3] .' : ' .$commentary[3] .'<br>in ' .$titleary[3] .'</a><br>');
+                                echo('<a href="#?' .$titleary[3] .'>' .$dateary[3] .'-' .$timeary[3] .' : ' .$commentary[3] .'<br>in ' .$titleary[3] .'</a><br>');
                             ?>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[4] != NULL)
-                                echo('<a href="#?title=' .$titleary[4] .'">' .$dateary[4] .'-' .$timeary[4] .' : ' .$commentary[4] .'<br>in ' .$titleary[4] .'</a><br>');
+                                echo('<a href="#?' .$titleary[4] .'>' .$dateary[4] .'-' .$timeary[4] .' : ' .$commentary[4] .'<br>in ' .$titleary[4] .'</a><br>');
                             ?>
                             </p>
                         </div>
@@ -274,31 +274,31 @@ GOMI;
                             <p style="font-size: 3em;">
                             <?php
                                 if($titleary[0] != NULL)
-                                    echo("<a href=\"#?title=\\\"" .$titleary[0] ."\\\"\">" .$titleary[0] .':' .$evaary[0] .'</a>');
+                                echo("<a href=#?" .$titleary[0] .">" .$titleary[0] .':' .$evaary[0] .'</a>');
                             ?>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[1] != NULL)
-                                echo('<a href="#?title=' .$titleary[1] .'">' .$titleary[1] .':' .$evaary[1] .'</a>');
+                                echo('<a href="#?' .$titleary[1] .'>' .$titleary[1] .':' .$evaary[1] .'</a>');
                             ?>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[2] != NULL)
-                                echo('<a href="#?title=' .$titleary[2] .'">' .$titleary[2] .':' .$evaary[2] .'</a>');
+                                echo('<a href="#?' .$titleary[2] .'>' .$titleary[2] .':' .$evaary[2] .'</a>');
                             ?>
                             </p>
                             <p style="font-size: 1em;">
                             <?php
                                 if($titleary[3] != NULL)
-                                echo('<a href="#?title=' .$titleary[3] .'">' .$titleary[3] .':' .$evaary[3] .'</a>');
+                                echo('<a href="#?' .$titleary[3] .'>' .$titleary[3] .':' .$evaary[3] .'</a>');
                             ?>
                             </p>
                             <p style="font-size: 1em;">
                             <?php
                                 if($titleary[4] != NULL)
-                                echo('<a href="#?title=' .$titleary[4] .'">' .$titleary[4] .':' .$evaary[4] .'</a>');
+                                echo('<a href="#?' .$titleary[4] .'>' .$titleary[4] .':' .$evaary[4] .'</a>');
                             ?>
                             </p>
                         </div>
