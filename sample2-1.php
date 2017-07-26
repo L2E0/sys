@@ -64,7 +64,7 @@ GOMI;
         <hr style="border-color: #ff0000; margin-top: 1px;">
 
         <div style="text-align: center;">
-            <p class="dokaben dkbn-text dkbn-up" style="animation-duration: 10000ms; font-size: 5em; display: inline-block;">ランキングくん</p>
+            <p class="dokaben dkbn-text dkbn-up" style="animation-duration: 10000ms; font-size: 8em; display: inline-block;">ランキングくん</p>
         </div>
 
         <div class="container-fluid">
