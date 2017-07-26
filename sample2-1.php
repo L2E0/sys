@@ -146,29 +146,67 @@ GOMI;
                                 if(!$con){
                                     die('failure' .pg_last_error());
                                 }
-                                //echo 'success';
                                 pg_set_client_encoding('UTF-8');
-                                $sql='select * from thread';
+                                $sql='select * from comment';
                                 $result=pg_query($sql);
                                 if(!$result){
                                     die('fail to execute the query' .pg_last_error());
                                 }
-                                $maxeva=0;
+
+                                $dateary = array_pad(array(), 5, NULL);
+                                $timeary = array_pad(array(), 5, NULL);
+                                $commentary = array_pad(array(), 5, NULL);
+                                $titleary = array_pad(array(), 5, NULL);
+
                                 while($row = pg_fetch_assoc($result)){
-                                    //echo($row['title'] .'<br>');
-                                    if($maxeva < $row['evaluation']){
-                                        $maxeva = $row['evaluation'];
-                                        $maxtitle = $row['title'];
+                                    for($i=0; $i<count($dateary); $i++){
+                                        if($dateary[$i] < $row['date']){
+                                            $dateary[$i] = $row['date'];
+                                            $timeary[$i] = $row['time'];
+                                            $commentary[$i] = $row['comment'];
+                                            $titleary[$i] = $row['title'];
+                                            break;
+                                        }
                                     }
                                 }
-                                echo('<br>' .$maxtitle .$maxeva .'<br>');
-
-                                $result=pg_query($sql);
-                                $data=pg_fetch_array($result,NULL,PGSQL_ASSOC);
-                                echo('thread:' .$data['title'] .'<br>' .$data['game'] .'<br>');
 
                                 pg_close($con);
                             ?>
+                            <p style="font-size: 2em;">
+                            <?php
+                                if($titleary[0] != NULL)
+                                echo('<a href="#?title=' .$titleary[0] .'">' .$dateary[0] .'-' .$timeary[0] .' : ' .$commentary[0] .'<br>->' .$titleary[0] .'</a>');
+                            ?>
+                            <br>
+                            </p>
+                            <p style="font-size: 2em;">
+                            <?php
+                                if($titleary[0] != NULL)
+                                echo('<a href="#?title=' .$titleary[1] .'">' .$dateary[1] .'-' .$timeary[1] .' : ' .$commentary[1] .'<br>->' .$titleary[1] .'</a>');
+                            ?>
+                            <br>
+                            </p>
+                            <p style="font-size: 2em;">
+                            <?php
+                                if($titleary[0] != NULL)
+                                echo('<a href="#?title=' .$titleary[2] .'">' .$dateary[2] .'-' .$timeary[2] .' : ' .$commentary[2] .'<br>->' .$titleary[2] .'</a>');
+                            ?>
+                            <br>
+                            </p>
+                            <p style="font-size: 2em;">
+                            <?php
+                                if($titleary[0] != NULL)
+                                echo('<a href="#?title=' .$titleary[3] .'">' .$dateary[3] .'-' .$timeary[3] .' : ' .$commentary[3] .'<br>->' .$titleary[3] .'</a>');
+                            ?>
+                            <br>
+                            </p>
+                            <p style="font-size: 2em;">
+                            <?php
+                                if($titleary[0] != NULL)
+                                echo('<a href="#?title=' .$titleary[4] .'">' .$dateary[4] .'-' .$timeary[4] .' : ' .$commentary[4] .'<br>->' .$titleary[4] .'</a>');
+                            ?>
+                            <br>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -178,13 +216,19 @@ GOMI;
                             Rank
                         </div>
                             <?php
-                                $maxeva=0;
+                                /*$maxeva=0;
+
+                                $con=pg_connect("dbname=group1_db user=group1");
+                                if(!$con){
+                                    die('failure' .pg_last_error());
+                                }
+                                pg_set_client_encoding('UTF-8');
+                                $sql='select * from thread';
                                 $result=pg_query($sql);
                                 if(!$result){
                                     die('fail to execute the query' .pg_last_error());
                                 }
                                 while($row = pg_fetch_assoc($result)){
-                                    //echo($row['title'] .'<br>');
                                     if($maxeva < $row['evaluation']){
                                         $maxeva = $row['evaluation'];
                                         $maxtitle = $row['title'];
@@ -197,24 +241,63 @@ GOMI;
                                 echo('thread:' .$data['title'] .'<br>' .$data['game'] .'<br>');
 
                                 pg_close($con);
+                                */
 
-                                /*
-                                $evaary = array_pad(array(0), 5, -1);
-                                $titleary = array_pad(array(0), 5, -1);
+                                $evaary = array_pad(array(), 5, NULL);
+                                $titleary = array_pad(array(), 5, NULL);
+
+                                $con=pg_connect("dbname=group1_db user=group1");
+                                if(!$con){
+                                    die('failure' .pg_last_error());
+                                }
+                                pg_set_client_encoding('UTF-8');
+                                $sql='select * from thread';
+                                $result=pg_query($sql);
+
+                                if(!$result){
+                                    die('fail to execute the query' .pg_last_error());
+                                }
                                 while($row = pg_fetch_assoc($result)){
-                                    for($i=0; $i<5; $i++){
-                                        if($evaary[$i] < $row['evalueation']){
-                                            $evaary[$i] = $row['evalueation'];
+                                    for($i=0; $i<count($evaary); $i++){
+                                        if($evaary[$i] < $row['evaluation']){
+                                            $evaary[$i] = $row['evaluation'];
                                             $titleary[$i] = $row['title'];
                                             break;
                                         }
                                     }
                                 }
-                                */
                             ?>
                         <div class="panel-body">
 
                             <p style="font-size: 3em;">
+                            <?php
+                                if($titleary[0] != NULL)
+                                echo('<a href="#?title=' .$titleary[0] .'">' .$titleary[0] .':' .$evaary[0] .'</a>');
+                            ?>
+                            </p>
+                            <p style="font-size: 2em;">
+                            <?php
+                                if($titleary[1] != NULL)
+                                echo('<a href="#?title=' .$titleary[1] .'">' .$titleary[1] .':' .$evaary[1] .'</a>');
+                            ?>
+                            </p>
+                            <p style="font-size: 2em;">
+                            <?php
+                                if($titleary[2] != NULL)
+                                echo('<a href="#?title=' .$titleary[2] .'">' .$titleary[2] .':' .$evaary[2] .'</a>');
+                            ?>
+                            </p>
+                            <p style="font-size: 1em;">
+                            <?php
+                                if($titleary[3] != NULL)
+                                echo('<a href="#?title=' .$titleary[3] .'">' .$titleary[3] .':' .$evaary[3] .'</a>');
+                            ?>
+                            </p>
+                            <p style="font-size: 1em;">
+                            <?php
+                                if($titleary[4] != NULL)
+                                echo('<a href="#?title=' .$titleary[4] .'">' .$titleary[4] .':' .$evaary[4] .'</a>');
+                            ?>
                             </p>
                         </div>
                     </div>
