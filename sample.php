@@ -193,8 +193,24 @@ GOMI;
                                 echo('thread:' .$data['title'] .'<br>' .$data['game'] .'<br>');
 
                                 pg_close($con);
+
+                                /*$evaary = array_pad(array(0), 5, -1);
+                                $titleary = array_pad(array(0), 5, -1);
+                                while($row = pg_fetch_assoc($result)){
+                                    for($i=0; $i<5; $i++){
+                                        if($evaary[$i] < $row['evalueation']){
+                                            $evaary[$i] = $row['evalueation'];
+                                            $titleary[$i] = $row['title'];
+                                            break;
+                                        }
+                                    }
+                                }*/
                             ?>
                         <div class="panel-body">
+
+                            <p style="font-size: 3em;">
+                            <?php echo('<a href=¥"#?title=' .$titleary[0] .'¥">' .$titlearay[0] .':' .$evaary[0]); ?> </a>
+                            </p>
                         </div>
                     </div>
                 </div>
