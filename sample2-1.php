@@ -5,7 +5,7 @@
         <link rel="stylesheet" href=".\css\bootstrap-3.3.7-dist\css\bootstrap.min.css">
         <link href='http://fonts.googleapis.com/css?family=Coming+Soon' rel='stylesheet' type='text/css'>
         <meta charset=utf-8>
-        <title>ランキングくん</title>
+        <title>Bootstrap dokaben test</title>
         <style>
             .dekaben {
                         display: inline-block;
@@ -15,23 +15,24 @@
         </style>
     </head>
     <body>
-        <a type="button" class="btn btn-info" style="margin-left:20px;" href="./index.php">
+        <a type="button" class="btn btn-default" style="margin-left:20px;" href="./sample2-1.php">
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
         </a>
-        <a href="./riyoukiyaku.html" type="button" class="btn btn-danger">利用規約</a>
-        <a href="./shiyouhoho.html" type="button" class="btn btn-success">使用方法</a>
+        <a  href="riyoukiyaku.html" type="button" class="btn btn-danger">利用規約</a>
+        <a href="siyouhoho.html" type="button" class="btn btn-info">使用方法</a>
+
         <div style="display: inline-block; float: right; overflow: visible;">
             <div class="btn-group">
                 <button type="button" style="width: 160px; text-align: right;"class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Action <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" style="width: 100px;">
-                    <li id="signup"><a href="#">sign up</a></li>
-                    <li id="signin"><a href="#">sign in</a></li>
-                    <li id="myp"><a href="#">my page</a></li>
-                    <li id="crtth"><a href="#">create thread</a></li>
+                    <li id="signup"><a href="./register.php">sign up</a></li>
+                    <li id="signin"><a href="./login.php">sign in</a></li>
+                    <li id="myp"><a href="./mypage.php">my page</a></li>
+                    <li id="crtth"><a href="./make.php">create thread</a></li>
                     <li id="bar" role="separator" class="divider"></li>
-                    <li id="signout"><a href="#">sign out</a></li>
+                    <li id="signout"><a href="./signout.php">sign out</a></li>
                 </ul>
             </div>
         </div>
@@ -135,10 +136,7 @@ GOMI;
                 <div class="col-md-4">
                     <div class="panel panel-info">
                         <div class="panel-heading" >
-                            <p style="margin: 0px 0px 0px 10px;"><span class="dokaben dkbn-text dkbn-loop dekaben" >
-                            New Comments
-                            </span>
-                            </p>
+                            <p style="margin: 0px 0px 0px 12px;"><span class="dokaben dkbn-text dkbn-loop dekaben" >New Comments</span></p>
                         </div>
                         <div class="panel-body">
                             <?php
@@ -179,32 +177,37 @@ GOMI;
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[0] != NULL)
-                                echo('<a href="#?' .$titleary[0] .'>' .$dateary[0] .'-' .$timeary[0] .' : ' .$commentary[0] .'<br>in ' .$titleary[0] .'</a><br>');
+                                echo('<a href="./show_thread.php?' .$titleary[0] .'">' .$dateary[0] .'-' .$timeary[0] .' : ' .$commentary[0] .'<br>in  ' .$titleary[0] .'</a>');
                             ?>
+                            <br>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[1] != NULL)
-                                echo('<a href="#?' .$titleary[1] .'>' .$dateary[1] .'-' .$timeary[1] .' : ' .$commentary[1] .'<br>in ' .$titleary[1] .'</a><br>');
+                                echo('<a href="./show_thread.php?' .$titleary[1] .'">' .$dateary[1] .'-' .$timeary[1] .' : ' .$commentary[1] .'<br>in  ' .$titleary[1] .'</a>');
                             ?>
+                            <br>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[2] != NULL)
-                                echo('<a href="#?' .$titleary[2] .'>' .$dateary[2] .'-' .$timeary[2] .' : ' .$commentary[2] .'<br>in ' .$titleary[2] .'</a><br>');
+                                echo('<a href="./show_thread.php?' .$titleary[2] .'">' .$dateary[2] .'-' .$timeary[2] .' : ' .$commentary[2] .'<br>in  ' .$titleary[2] .'</a>');
                             ?>
+                            <br>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[3] != NULL)
-                                echo('<a href="#?' .$titleary[3] .'>' .$dateary[3] .'-' .$timeary[3] .' : ' .$commentary[3] .'<br>in ' .$titleary[3] .'</a><br>');
+                                echo('<a href="./show_thread.php?' .$titleary[3] .'">' .$dateary[3] .'-' .$timeary[3] .' : ' .$commentary[3] .'<br>in  ' .$titleary[3] .'</a>');
                             ?>
+                            <br>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[4] != NULL)
-                                echo('<a href="#?' .$titleary[4] .'>' .$dateary[4] .'-' .$timeary[4] .' : ' .$commentary[4] .'<br>in ' .$titleary[4] .'</a><br>');
+                                echo('<a href="./show_thread.php?' .$titleary[4] .'">' .$dateary[4] .'-' .$timeary[4] .' : ' .$commentary[4] .'<br>in  ' .$titleary[4] .'</a>');
                             ?>
+                            <br>
                             </p>
                         </div>
                     </div>
@@ -212,10 +215,7 @@ GOMI;
                 <div class="col-md-4">
                     <div class="panel panel-info">
                         <div class="panel-heading" >
-                            <p style="margin: 0px 0px 0px 15px;"><span class="dokaben dkbn-text dkbn-loop dekaben" >
-                            Thread Rank
-                            </span>
-                            </p>
+                            <p style="margin: 0px 0px 0px 30px;"><span class="dokaben dkbn-text dkbn-loop dekaben" >Thread Rank</span></p>
                         </div>
                             <?php
                                 /*$maxeva=0;
@@ -274,31 +274,31 @@ GOMI;
                             <p style="font-size: 3em;">
                             <?php
                                 if($titleary[0] != NULL)
-                                echo("<a href=#?" .$titleary[0] .">" .$titleary[0] .':' .$evaary[0] .'</a>');
+                                echo('<a href="./show_thread.php?' .$titleary[0] .'">' .$titleary[0] .' : ★' .$evaary[0] .'</a>');
                             ?>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[1] != NULL)
-                                echo('<a href="#?' .$titleary[1] .'>' .$titleary[1] .':' .$evaary[1] .'</a>');
+                                echo('<a href="./show_thread.php?' .$titleary[1] .'">' .$titleary[1] .' : ★' .$evaary[1] .'</a>');
                             ?>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[2] != NULL)
-                                echo('<a href="#?' .$titleary[2] .'>' .$titleary[2] .':' .$evaary[2] .'</a>');
+                                echo('<a href="./show_thread.php?' .$titleary[2] .'">' .$titleary[2] .' : ★' .$evaary[2] .'</a>');
                             ?>
                             </p>
                             <p style="font-size: 1em;">
                             <?php
                                 if($titleary[3] != NULL)
-                                echo('<a href="#?' .$titleary[3] .'>' .$titleary[3] .':' .$evaary[3] .'</a>');
+                                echo('<a href="./show_thread.php?' .$titleary[3] .'">' .$titleary[3] .' : ★' .$evaary[3] .'</a>');
                             ?>
                             </p>
                             <p style="font-size: 1em;">
                             <?php
                                 if($titleary[4] != NULL)
-                                echo('<a href="#?' .$titleary[4] .'>' .$titleary[4] .':' .$evaary[4] .'</a>');
+                                echo('<a href="./show_thread.php?' .$titleary[4] .'">' .$titleary[4] .' : ★' .$evaary[4] .'</a>');
                             ?>
                             </p>
                         </div>
