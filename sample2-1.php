@@ -12,14 +12,27 @@
                         font-size: 3em;
                         text-align: center;
                     }
+                    .parent{
+                        position: relative;
+                        height: 200px;
+                        width: 300px;
+                    }
+                    .inner{
+                        top: 0;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        position: absolute;
+                        margin: auto;
+                    }
         </style>
     </head>
     <body>
         <a type="button" class="btn btn-default" style="margin-left:20px;" href="./sample2-1.php">
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
         </a>
-        <a  href="riyoukiyaku.html" type="button" class="btn btn-danger">利用規約</a>
-        <a href="siyouhoho.html" type="button" class="btn btn-info">使用方法</a>
+        <a  href="riyoukiyaku.html" type="button" class="btn btn-warning">利用規約</a>
+        <a href="shiyouhoho.html" type="button" class="btn btn-success">使用方法</a>
 
         <div style="display: inline-block; float: right; overflow: visible;">
             <div class="btn-group">
@@ -71,15 +84,21 @@ GOMI;
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
-
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search for...">
                         <span class="input-group-btn">
                             <a href="#"><button  class="btn btn-info" type="button" style="float: left;">検索</button></a>
                         </span>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-2 col-sm-offset-5">
+                    <a href="select_thread.php" type="button" class="btn btn-danger">詳細検索へGo</a>
+                </div>
+            </div>
 
-                    <form>
+                    <!--<form>
                         <button type="button" class="btn btn-default" onclick="detail2()">
                             <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                         </button>
@@ -113,9 +132,8 @@ GOMI;
                             }
                         }
                     </script>
+                    -->
 
-                </div>
-            </div>
             <div class="row" style="margin-top: 10px;">
                 <div class="col-md-4">
                     <div class="panel panel-info" >
@@ -159,14 +177,16 @@ GOMI;
                                 $timeary = array_pad(array(), 5, NULL);
                                 $commentary = array_pad(array(), 5, NULL);
                                 $titleary = array_pad(array(), 5, NULL);
+                                $numary = array_pad(array(), 5, NULL);
 
                                 while($row = pg_fetch_assoc($result)){
                                     for($i=count($dateary)-1; $i>=0; $i--){
-                                        if($dateary[$i] < $row['date']){
+                                        if(($dateary[$i] >= $row['date'] && $timeary[$i] > $row['time']) || $dateary[$i] == NULL){
                                             $dateary[$i] = $row['date'];
                                             $timeary[$i] = $row['time'];
                                             $commentary[$i] = $row['comment'];
                                             $titleary[$i] = $row['title'];
+                                            $numary[$i] = $row['no'];
                                             break;
                                         }
                                     }
@@ -177,35 +197,35 @@ GOMI;
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[0] != NULL)
-                                echo('<a href="./show_thread.php?' .$titleary[0] .'">' .$dateary[0] .'-' .$timeary[0] .' : ' .$commentary[0] .'<br>in  ' .$titleary[0] .'</a>');
+                                echo('<a href="./show_thread.php?' .$numary[0] .'">' .$dateary[0] .'-' .$timeary[0] .' : ' .$commentary[0] .'<br>in  ' .$titleary[0] .'</a>');
                             ?>
                             <br>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[1] != NULL)
-                                echo('<a href="./show_thread.php?' .$titleary[1] .'">' .$dateary[1] .'-' .$timeary[1] .' : ' .$commentary[1] .'<br>in  ' .$titleary[1] .'</a>');
+                                echo('<a href="./show_thread.php?' .$numary[1] .'">' .$dateary[1] .'-' .$timeary[1] .' : ' .$commentary[1] .'<br>in  ' .$titleary[1] .'</a>');
                             ?>
                             <br>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[2] != NULL)
-                                echo('<a href="./show_thread.php?' .$titleary[2] .'">' .$dateary[2] .'-' .$timeary[2] .' : ' .$commentary[2] .'<br>in  ' .$titleary[2] .'</a>');
+                                echo('<a href="./show_thread.php?' .$numary[2] .'">' .$dateary[2] .'-' .$timeary[2] .' : ' .$commentary[2] .'<br>in  ' .$titleary[2] .'</a>');
                             ?>
                             <br>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[3] != NULL)
-                                echo('<a href="./show_thread.php?' .$titleary[3] .'">' .$dateary[3] .'-' .$timeary[3] .' : ' .$commentary[3] .'<br>in  ' .$titleary[3] .'</a>');
+                                echo('<a href="./show_thread.php?' .$numary[3] .'">' .$dateary[3] .'-' .$timeary[3] .' : ' .$commentary[3] .'<br>in  ' .$titleary[3] .'</a>');
                             ?>
                             <br>
                             </p>
                             <p style="font-size: 2em;">
                             <?php
                                 if($titleary[4] != NULL)
-                                echo('<a href="./show_thread.php?' .$titleary[4] .'">' .$dateary[4] .'-' .$timeary[4] .' : ' .$commentary[4] .'<br>in  ' .$titleary[4] .'</a>');
+                                echo('<a href="./show_thread.php?' .$numary[4] .'">' .$dateary[4] .'-' .$timeary[4] .' : ' .$commentary[4] .'<br>in  ' .$titleary[4] .'</a>');
                             ?>
                             <br>
                             </p>
