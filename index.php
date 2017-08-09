@@ -7,7 +7,7 @@
         <meta charset=utf-8>
         <title>ランキングくん</title>
         <style>
-                    .dekaben {
+            .dekaben {
                         display: inline-block;
                         font-size: 3em;
                         text-align: center;
@@ -31,21 +31,21 @@
         <a type="button" class="btn btn-default" style="margin-left:20px;" href="index.php">
             <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
         </a>
-        <a  href="riyoukiyaku.html" type="button" class="btn btn-warning">利用規約</a>
+        <a href="riyoukiyaku.html" type="button" class="btn btn-warning">利用規約</a>
         <a href="shiyouhoho.html" type="button" class="btn btn-success">使用方法</a>
 
         <div style="display: inline-block; float: right; overflow: visible;">
             <div class="btn-group">
                 <button type="button" style="width: 160px; text-align: right;"class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Action <span class="caret"></span>
+                    <div align="center">User Menu<span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" style="width: 100px;">
-                    <li id="signup"><a href="./signup.php">sign up</a></li>
-                    <li id="signin"><a href="./signin.php">sign in</a></li>
-                    <li id="myp"><a href="./mypage.php">my page</a></li>
-                    <li id="crtth"><a href="./post.php">create thread</a></li>
+                    <li id="signup"><a href="signup.php">sign up</a></li>
+                    <li id="signin"><a href="signin.php">sign in</a></li>
+                    <li id="myp"><a href="mypage.php">my page</a></li>
+                    <li id="crtth"><a href="post.php">create thread</a></li>
                     <li id="bar" role="separator" class="divider"></li>
-                    <li id="signout"><a href="./signout.php">sign out</a></li>
+                    <li id="signout"><a href="signout.php">sign out</a></li>
                 </ul>
             </div>
         </div>
@@ -85,18 +85,12 @@ GOMI;
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for...">
-                        <span class="input-group-btn">
-                            <a href="#"><button  class="btn btn-info" type="button" style="float: left;">検索</button></a>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
                 <div class="col-sm-2 col-sm-offset-5">
-                    <a href="select_thread.php" type="button" class="btn btn-danger">詳細検索へGo</a>
+                    <div style="test-align: center;">
+                        <div style="text-align: center;">
+                            <span class="dkbn-hover"><span class="dokaben dkbn-loop2"><a href="select_thread.php" type="button" class="btn btn-info">検索へGo</a></span></span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -108,11 +102,23 @@ GOMI;
                         </div>
                         <div class="panel-body">
                             <ul style="list-style: none;">
-                                <a href="#?genre='a'" style="font-size: 2em;"><li>Horror</li></a>
-                                <a href="#" style="font-size: 2em;"><li>Action</li></a>
-                                <a href="#" style="font-size: 2em;"><li>Battle</li></a>
-                                <a href="#" style="font-size: 2em;"><li>Fighting</li></a>
-                                <a href="#" style="font-size: 2em;"><li>Shooting</li></a>
+                                <?php
+                                    $opt = '&search_title=&search_game=&search_date1=2017-01-01&search_date2=2017-12-31&search_time1=00:00&search_time2=24:59';
+                                    $genre=<<<GOMI
+                                    <a href="select_thread.php?search_genre='アクション'$opt" style="font-size: 2em;"><li>アクション</li></a>
+                                    <a href="select_thread.php?search_genre='アドベンチャー'$opt" style="font-size: 2em;"><li>アドベンチャー</li></a>
+                                    <a href="select_thread.php?search_genre='音楽'$opt" style="font-size: 2em;"><li>音楽</li></a>
+                                    <a href="select_thread.php?search_genre='カジノ'$opt" style="font-size: 2em;"><li>カジノ</li></a>
+                                    <a href="select_thread.php?search_genre='教育'$opt" style="font-size: 2em;"><li>教育</li></a>
+                                    <a href="select_thread.php?search_genre='カード'$opt" style="font-size: 2em;"><li>カード</li></a>
+                                    <a href="select_thread.php?search_genre='シュミレーション'$opt" style="font-size: 2em;"><li>シュミレーション</li></a>
+                                    <a href="select_thread.php?search_genre='シューティング'$opt" style="font-size: 2em;"><li>シューティング</li></a>
+                                    <a href="select_thread.php?search_genre='スポーツ'$opt" style="font-size: 2em;"><li>スポーツ</li></a>
+                                    <a href="select_thread.php?search_genre='パズル'$opt" style="font-size: 2em;"><li>パズル</li></a>
+                                    <a href="select_thread.php?search_genre='レース'$opt" style="font-size: 2em;"><li>レース</li></a>
+GOMI;
+                                    echo $genre;
+                                ?>
                             </ul>
                         </div>
                     </div>
@@ -173,9 +179,9 @@ GOMI;
                             <p style="margin: 0px 0px 0px 30px;"><span class="dokaben dkbn-text dkbn-loop dekaben" >Thread Rank</span></p>
                         </div>
                             <?php
-                                $evaary = array_pad(array(), 5, NULL);
-                                $titleary = array_pad(array(), 5, NULL);
-                                $numary = array_pad(array(), 5, NULL);
+                                $evaary = [];
+                                $titleary = [];
+                                $numary = [];
 
                                 $sql='select * from thread order by evaluation desc limit 5';
                                 $result=pg_query($sql);
@@ -183,49 +189,30 @@ GOMI;
                                 if(!$result){
                                     die('fail to execute the query' .pg_last_error());
                                 }
+                                $rows=[];
+                                $fontsizes=['3em', '2em', '1.8em', '1.5em', '1.2em'];
                                 while($row = pg_fetch_assoc($result)){
-                                    for($i=0; $i<count($evaary); $i++){
-                                        if($evaary[$i] < $row['evaluation']){
-                                            $evaary[$i] = $row['evaluation'];
-                                            $titleary[$i] = $row['title'];
-                                            $numary[$i] = $row['no'];
-                                            break;
-                                        }
-                                    }
+                                    $rows[]=$row;
+                                }
+                                foreach($rows as $i => $row){
+                                    $evaary[$i] = $row['evaluation'];
+                                    $titleary[$i] = $row['title'];
+                                    $numary[$i] = $row['no'];
                                 }
                             ?>
                         <div class="panel-body">
-
-                            <p style="font-size: 3em;">
                             <?php
-                                if($titleary[0] != NULL)
-                                echo('<a href="./show_thread.php?no=' .$numary[0] .'">' .$titleary[0] .' : ★' .$evaary[0] .'</a>');
+                                foreach($fontsizes as $i => $size){
+                                    if(isset($titleary[$i])){
+                                        $html=<<<EOT
+                                        <p style="font-size: $size;">
+                                        <a href="./show_thread.php?no={$numary[$i]}">{$titleary[$i]} : ★{$evaary[$i]}</a>
+                                        </p>
+EOT;
+                                        echo $html;
+                                    }
+                                }
                             ?>
-                            </p>
-                            <p style="font-size: 2em;">
-                            <?php
-                                if($titleary[1] != NULL)
-                                echo('<a href="./show_thread.php?no=' .$numary[1] .'">' .$titleary[1] .' : ★' .$evaary[1] .'</a>');
-                            ?>
-                            </p>
-                            <p style="font-size: 2em;">
-                            <?php
-                                if($titleary[2] != NULL)
-                                echo('<a href="./show_thread.php?no=' .$numary[2] .'">' .$titleary[2] .' : ★' .$evaary[2] .'</a>');
-                            ?>
-                            </p>
-                            <p style="font-size: 2em;">
-                            <?php
-                                if($titleary[3] != NULL)
-                                echo('<a href="./show_thread.php?no=' .$numary[3] .'">' .$titleary[3] .' : ★' .$evaary[3] .'</a>');
-                            ?>
-                            </p>
-                            <p style="font-size: 2em;">
-                            <?php
-                                if($titleary[4] != NULL)
-                                echo('<a href="./show_thread.php?no=' .$numary[4] .'">' .$titleary[4] .' : ★' .$evaary[4] .'</a>');
-                            ?>
-                            </p>
                             <p style="font-size: 1em;">
                             <a href="ranking.php" class="dkbn-hover"><span class="dokaben dkbn-loop2">ランキングをさらに見る</span></a>
                             </p>
