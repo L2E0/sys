@@ -7,7 +7,7 @@
         <meta charset=utf-8>
         <title>ランキングくん</title>
         <style>
-            .dekaben {
+                    .dekaben {
                         display: inline-block;
                         font-size: 3em;
                         text-align: center;
